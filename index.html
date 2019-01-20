@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>zokuzoku風</title>
+</head>
+<script>
+  window.onload = function() {
+    const prefectureList = document.getElementById('js-prefecture-list');
+    const listTitle = document.getElementById('js-open-list');
+
+    let i = -140;
+
+    let outList = setInterval(function() {
+        prefectureList.style.top = prefectureList.style.top = i + "px";
+        i += 2;
+        console.log(i);
+        if(i > 0) {
+          clearInterval(outList);
+        }
+    }, 100);
+
+    prefectureList.addEventListener('click', outList);
+
+  }
+</script>
+<style>
+.prefecture-title {
+  width: 150px;
+  font-size: 18px;
+  color: #555;
+  background-color: #fff;
+  border: solid 2px #555;
+  cursor: pointer;
+  text-align: center;
+  margin: 0;
+}
+.prefecture-list-content {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+}
+.prefecture-lest {
+  list-style: none;
+  position: absolute;
+  top: -140px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+</style>
+<body>
+  <p id='js-open-list' class='prefecture-title'>近畿地方</p>
+  <div class='prefecture-list-content'>
+    <ul id='js-prefecture-list' class='prefecture-lest'>
+      <li>滋賀県</li>
+      <li>京都府</li>
+      <li>大阪府</li>
+      <li>奈良県</li>
+      <li>兵庫県</li>
+      <li>和歌山県</li>
+    </ul>
+  </div>
+</body>
+</html>
